@@ -6,10 +6,12 @@ const cors = require('cors');
 
 
 const routes = require('./routes/routes');
+const config = require('./config');
 const db = require('./database/db');
 const socket = require('./websocket/socket');
 
-db('mongodb+srv://joseDev:GzjSozu1pL3XorcU@cluster0.hpwdn.mongodb.net/?retryWrites=true&w=majority');
+db(`mongodb+srv://${config.db_user}:${config.db_password}@cluster0.hpwdn.mongodb.net/?retryWrites=true&w=majority`);
+// db('mongodb+srv://joseDev:GzjSozu1pL3XorcU@cluster0.hpwdn.mongodb.net/?retryWrites=true&w=majority')
 // app.use('/', (req, res) =>{
 //     res.send("Holita");
 // })
@@ -23,6 +25,6 @@ socket.connect(server);
 routes(app);
 
 
-server.listen(8080, ()=>{
-    console.log(`Listening on port: 8080`);
+server.listen(config.port, ()=>{
+    console.log(`Listening on port: ${config.port}. . . ${config.environment} environment`);
 });
