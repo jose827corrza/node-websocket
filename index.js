@@ -10,7 +10,8 @@ const config = require('./config');
 const db = require('./database/db');
 const socket = require('./websocket/socket');
 
-db(`mongodb+srv://${config.db_user}:${config.db_password}@cluster0.hpwdn.mongodb.net/?retryWrites=true&w=majority`);
+db(config.db_url)
+// db(`mongodb+srv://${config.db_user}:${config.db_password}@cluster0.hpwdn.mongodb.net/?retryWrites=true&w=majority`);
 // db('mongodb+srv://joseDev:GzjSozu1pL3XorcU@cluster0.hpwdn.mongodb.net/?retryWrites=true&w=majority')
 // app.use('/', (req, res) =>{
 //     res.send("Holita");
