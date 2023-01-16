@@ -13,4 +13,14 @@ router.post("/", (req, res)=>{
         responses.error(req, res, "Invalid", 500);
     });
 })
+
+router.get('/', (req, res) => {
+    uController.getUsers()
+    .then(data => {
+        responses.success(req, res, data, 200);
+    })
+    .catch(error => {
+        responses.error(req, res, "Internal server error", 500);
+    })
+})
 module.exports = router;

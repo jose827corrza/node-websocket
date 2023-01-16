@@ -23,7 +23,7 @@ async function updateM(id, message){
 }
 
 async function del(id){
-    return await Model.findOneAndDelete(id);
+    return await Model.findOneAndDelete({ _id: id});
 }
 
 module.exports = {
